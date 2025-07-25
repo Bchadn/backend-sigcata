@@ -18,7 +18,7 @@ const app = express();
 const PORT = 8081;
 
 app.use(cors({
-  origin: 'https://sigcata-campurejo-tampingan-adwl6bwoa.vercel.app', // frontend (React/Vite)
+  origin: 'https://sigcata-campurejo-tampingan.vercel.app', // frontend (React/Vite)
   credentials: true
 }));
 
