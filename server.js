@@ -1,4 +1,3 @@
-// server.js
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
@@ -17,17 +16,25 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 8081;
 
+// Konfigurasi CORS: Mengizinkan localhost dan domain frontend Vercel untuk mengakses backend
 app.use(cors({
-  origin: 'http://localhost:5173', // frontend (React/Vite)
+  origin: (origin, callback) => {
+    const allowedOrigins = ['http://localhost:5173', 'https://sigcata-campurejo-tampingan-adwl6bwoa.vercel.app'];
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Tidak diizinkan oleh CORS'));
+    }
+  },
   credentials: true
 }));
 
 app.use(express.json());
 
-// Static files (e.g. for Cesium tileset)
+// Menyajikan file statis (misalnya untuk Cesium tileset)
 app.use('/tileset', express.static(path.join(__dirname, 'tilesets')));
 
-// API endpoints
+// Endpoint API
 app.use('/cityjson', buildingRoute);
 app.use('/znt', ZNTRoute);
 app.use('/pl', PLRoute);
@@ -37,5 +44,5 @@ app.use('/zonaawal', zonaawalRoute);
 app.use('/sampelznt', sampelzntRoute);
 
 app.listen(PORT, () => {
-  console.log('Running on http://localhost:8081');
+  console.log('Backend berjalan di http://localhost:8081');
 });
