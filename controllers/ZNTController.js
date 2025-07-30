@@ -29,7 +29,8 @@ export const getZNT = async (req, res) => {
             'geometry', ST_AsGeoJSON(ST_Transform(geom, 4326))::json,
             'properties', json_build_object(
               'Nomor Zona', id_zona,
-              'Harga', harga
+              'Harga', harga,
+              'Keterangan', keterangan
             )
           )
         )
