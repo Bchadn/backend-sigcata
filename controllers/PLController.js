@@ -29,7 +29,8 @@ export const getPL = async (req, res) => {
             'geometry', ST_AsGeoJSON(ST_Transform(geom, 4326))::json,
             'properties', json_build_object(
               'ID Penggunaan Lahan', id_pl,
-              'Fungsi Lahan', namobj
+              'Fungsi Lahan', namobj,
+              'Kategori', landuse
             )
           )
         )
