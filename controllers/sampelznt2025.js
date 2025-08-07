@@ -16,7 +16,7 @@ export const getsampelznt = async (req, res) => {
               'Koordinat X', x,
               'Koordinat Y', y,
               'Harga per m2', harga_per_m2,
-              'Gambar', gambar_path
+              'Gambar', 'https://backend-sigcata-education.up.railway.app' || gambar_path
             )
           )
         )
