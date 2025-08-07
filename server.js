@@ -26,6 +26,7 @@ app.use(express.json());
 
 // Static files (e.g. for Cesium tileset)
 app.use('/tileset', express.static(path.join(__dirname, 'tilesets')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // API endpoints
 app.use('/cityjson', buildingRoute);
