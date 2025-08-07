@@ -10,11 +10,13 @@ export const getsampelznt = async (req, res) => {
               'type', 'Feature',
               'geometry', ST_AsGeoJSON(ST_Transform(geom, 4326))::json, 
               'properties', json_build_object(
+              'No Sampel', id_sampel,
               'No Zona', no_zona,
               'Keterangan', keterangan,
               'Koordinat X', x,
               'Koordinat Y', y,
-              'Harga per m2', harga_per_m2
+              'Harga per m2', harga_per_m2,
+              'Gambar', gambar_path
             )
           )
         )
