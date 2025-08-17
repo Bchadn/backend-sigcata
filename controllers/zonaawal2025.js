@@ -10,8 +10,8 @@ export const getzonaawal = async (req, res) => {
             'type', 'Feature',
             'geometry', ST_AsGeoJSON(ST_Transform(geom, 4326))::json,
             'properties', json_build_object(
-              'No Zona', no_zona
-
+              'No Zona', no_zona,
+              'Keterangan', keterangan
             )
           )
         )
