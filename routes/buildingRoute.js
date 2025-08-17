@@ -1,4 +1,4 @@
-// routes/buildingRoute.js (ESM version)
+// routes/buildingRoute.js
 import express from 'express';
 import { getAllTilesets, getTilesetById } from '../controllers/building3d.js';
 

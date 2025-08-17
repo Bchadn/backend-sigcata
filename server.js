@@ -24,7 +24,7 @@ app.use(cors({
 
 app.use(express.json());
 
-// Static files (e.g. for Cesium tileset)
+// Static files and assets
 app.use('/tileset', express.static(path.join(__dirname, 'tilesets')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 

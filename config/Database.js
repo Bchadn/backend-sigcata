@@ -1,7 +1,7 @@
 import pkg from 'pg';
 import dotenv from 'dotenv';
 
-dotenv.config(); // Load dari .env
+dotenv.config();
 
 const { Pool } = pkg;
 
@@ -16,7 +16,7 @@ const db = new Pool({
 
 db.on('connect', async client => {
   try {
-    await client.query('SET search_path TO extensions, public'); // untuk PostGIS & tabel umum
+    await client.query('SET search_path TO extensions, public');
     console.log('✅ Terhubung ke Supabase PostgreSQL');
   } catch (err) {
     console.error('❌ Gagal set search_path:', err.message);

@@ -1,4 +1,4 @@
-// controllers/building3d.js (ESM version)
+// controllers/building3d.js
 import db from '../config/Database.js';
 
 export const getAllTilesets = async (req, res) => {

@@ -2,7 +2,7 @@
 import db from '../config/Database.js';
 
 export const getZNT = async (req, res) => {
-  const { year } = req.params; // Mendapatkan tahun dari parameter URL
+  const { year } = req.params;
 
   let tableName;
   switch (year) {
@@ -38,17 +38,16 @@ export const getZNT = async (req, res) => {
       FROM "${tableName}";
     `);
 
-    // Pastikan ada hasil sebelum mengakses rows[0]
     if (result.rows.length === 0 || !result.rows[0].geojson) {
       return res.json({
         type: 'FeatureCollection',
         features: []
-      }); // Mengembalikan FeatureCollection kosong jika tidak ada data
+      });
     }
 
     res.json(result.rows[0].geojson);
   } catch (err) {
-    console.error(`Error fetching ZNT ${year}:`, err); // Log error lebih spesifik
+    console.error(`Error fetching ZNT ${year}:`, err);
     res.status(500).json({ message: err.message });
   }
 };
